@@ -1,24 +1,27 @@
 """
-Pancake to ingredients
-2/23/2024
+Pancake to ingredients 1.1
+2/24/2024
 created by stereoscoped
 """
 
 repeat_program = True
 
 while repeat_program:
+
+    # Makeshift version of cookies
     cookie_file = open("saves\cookies.txt", "r")
     if cookie_file.read() == "True":
         cookies = True
     else:
         cookies = False
 
+    # Asks the first question - tries if it is a number or not
     while True:
         try:
-            pancake_amount = float(input("How many pancakes are you baking? "))
+            pancake_amount = float(input("\033[37mHow many pancakes are you baking? "))
             break
         except:
-            print("That is not a number.")
+            print("\033[31mThat is not a number.\033[37m")
 
     # Conversion calculation
     cups_of_flour = pancake_amount * 1
@@ -30,6 +33,7 @@ while repeat_program:
     eggs = pancake_amount * 1
 
     # Output
+    # if-else statements are for plurals in grammar
     print("You will need:")
     if cups_of_flour == 1: print(cups_of_flour,"cup of flour")
     else: print(cups_of_flour,"cups of flour")
@@ -52,17 +56,24 @@ while repeat_program:
     if eggs == 1: print(eggs, "egg")
     else: print(eggs, "eggs")
 
+    # Checks to repeat program or not, which is influenced by cookies
     if cookies == True:
         while True:
-            repeat_program_question = input("Are you baking another cake? (y/n) ")
+
+            # Asks if another cake is going to be baked
+            repeat_program_question = input("\033[37mAre you baking another cake? (y/n) ")
             if repeat_program_question == "n" or repeat_program_question == "N":
                 repeat_program = False
                 break
+
             if repeat_program_question == "y" or repeat_program_question == "Y":
+                # Asks if program wants to be repeated again
+
                 while True:
                     repeat_program = True
-                    cookie_question = input("Do you want this message to show again? (y/n) ")
+                    cookie_question = input("\033[37mDo you want this message to show again? (y/n) ")
                     if cookie_question == "n":
+                        # Changes the cookies file
                         cookie_file = open("saves\cookies.txt", "w")  # write mode
                         cookie_file.write("False")
                         cookie_file.close()
@@ -70,8 +81,8 @@ while repeat_program:
                     if cookie_question == "y" or cookie_question == "Y":
                         break
                     else:
-                        print("Please type y or n. ")
+                        print("\033[31mPlease type y or n. \033[37m")
                 break
             else:
-                print("Please type y or n. ")
+                print("\033[31mPlease type y or n. \033[37m")
 
