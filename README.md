@@ -1,2 +1,2 @@
 # Pancake-to-ingredients
-Input pancake amounts and it will output the amount of ingredients needed.
+Input pancake amounts and it will output the amount of ingredients needed. (Peer pressued by LiterallyFire)
